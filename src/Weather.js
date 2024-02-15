@@ -47,7 +47,7 @@ export default function Weather() {
           <h1>city</h1>
           <ul>
             <li>date</li>
-            <li>description</li>
+            <li>description...</li>
           </ul>
           <div className="row">
             <div className="col-6">
