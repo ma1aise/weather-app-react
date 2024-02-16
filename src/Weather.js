@@ -81,7 +81,6 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "515c9ddbeb3cda9061acfab71031839e";
-    let city = "Brisbane";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
