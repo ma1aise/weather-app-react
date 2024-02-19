@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
@@ -15,7 +15,8 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      iconUrl: "",
+      icon: response.data.weather[0].icon,
+      coordinates: response.data.coord,
     });
   }
 
@@ -52,33 +53,7 @@ export default function Weather(props) {
               </div>
             </div>
           </form>
-          <h1>{weatherData.city}</h1>
-          <ul>
-            <li>
-              <FormattedDate date={weatherData.date} />
-            </li>
-            <li className="text-capitalize">{weatherData.description}</li>
-          </ul>
-          <div className="row">
-            <div className="col-6">
-              <div className="clearfix">
-                <div className="float-left">
-                  <span className="temperature">
-                    {Math.round(weatherData.temperature)}
-                  </span>
-                  <span className="units">
-                    <a href="/">°C</a>|<a href="/">°F</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <ul>
-                <li>Humidity: {weatherData.humidity}%</li>
-                <li>Wind: {weatherData.wind} Km/h</li>
-              </ul>
-            </div>
-          </div>
+          <WeatherInfo data="weatherData" />
         </div>
       </div>
     );
