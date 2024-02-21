@@ -46,7 +46,7 @@ export default function Weather(props) {
             id="search-form"
           >
             <div className="row">
-              <div className="col-6">
+              <div className="col-9">
                 <input
                   type="search"
                   placeholder="Type a city..."
@@ -64,14 +64,7 @@ export default function Weather(props) {
                   className="form-control btn btn-success shadow-sm w-100"
                 />
               </div>
-              <div className="col-3">
-                <button
-                  className="btn btn-secondary w-100"
-                  id="current-location-button"
-                >
-                  Current
-                </button>
-              </div>
+              <div className="col-3"></div>
             </div>
           </form>
           <WeatherInfo data={weatherData} />
